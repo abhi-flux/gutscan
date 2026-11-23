@@ -1,0 +1,3 @@
+numpy
+edlib
+PySide6-Essentials

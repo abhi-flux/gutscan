@@ -1,0 +1,64 @@
+
+=== A. HELD-OUT strains (harsh): 2390 reads (990 from target taxa), 799 reads/s
+target                                TP    FP    FN precision  recall
+Faecalibacterium                      18     0     4     1.000   0.818
+  Faecalibacterium prausnitzii         2     1    18     0.667   0.100
+Roseburia                             28     2    10     0.933   0.737
+Eubacterium                            9     0     5     1.000   0.643
+Akkermansia                           12     0     4     1.000   0.750
+  Akkermansia muciniphila              5     0     3     1.000   0.625
+Bacteroides                           35     0    13     1.000   0.729
+Lactobacillus                         24     1    16     0.960   0.600
+  Lactobacillus reuteri                0     0     6       nan   0.000
+  Lactobacillus plantarum              0     0     4       nan   0.000
+Bifidobacterium                        4     2     2     0.667   0.667
+Enterococcus                          12     0     6     1.000   0.667
+Streptococcus                         29     0    17     1.000   0.630
+Escherichia                            0     2     0     0.000     nan
+  Escherichia coli                     0     2     0     0.000     nan
+Bacillus                              32     5    24     0.865   0.571
+Clostridium                           21     0    17     1.000   0.553
+Coprococcus                           28     3    12     0.903   0.700
+Dialister                             18     0    10     1.000   0.643
+Prevotella                            54     0     6     1.000   0.900
+Lachnospiraceae                      363     2    15     0.995   0.960
+Desulfovibrio                         21     0     7     1.000   0.750
+Enterobacteriaceae                   165     0     7     1.000   0.959
+Eggerthella                            4     0     0     1.000   1.000
+  Eggerthella lenta                    1     0     3     1.000   0.250
+Ruminococcus                          25     0    15     1.000   0.625
+  Ruminococcus gnavus                  5     0    11     1.000   0.312
+ALL genus/family rows                902    17   190     0.982   0.826
+
+=== B. SEEN strains (reads with sequencing error): 1400 reads (700 from target taxa), 1071 reads/s
+target                                TP    FP    FN precision  recall
+Faecalibacterium                      12     0     0     1.000   1.000
+  Faecalibacterium prausnitzii        10     0     2     1.000   0.833
+Roseburia                             27     0     4     1.000   0.871
+Eubacterium                           15     0     0     1.000   1.000
+Akkermansia                           12     0     0     1.000   1.000
+  Akkermansia muciniphila              7     0     1     1.000   0.875
+Bacteroides                           40     0     0     1.000   1.000
+Lactobacillus                         37     0     0     1.000   1.000
+  Lactobacillus reuteri                5     0     1     1.000   0.833
+  Lactobacillus plantarum              1     0     0     1.000   1.000
+Bifidobacterium                        8     0     0     1.000   1.000
+  Bifidobacterium longum               2     0     0     1.000   1.000
+Enterococcus                          16     0     4     1.000   0.800
+Streptococcus                         23     0     3     1.000   0.885
+Escherichia                            1     1     0     0.500   1.000
+  Escherichia coli                     1     1     0     0.500   1.000
+Bacillus                              33     0     1     1.000   0.971
+Clostridium                           24     0     3     1.000   0.889
+Coprococcus                           28     0     3     1.000   0.903
+Dialister                             18     0     2     1.000   0.900
+Prevotella                            32     0     0     1.000   1.000
+Lachnospiraceae                      245     0     2     1.000   0.992
+Desulfovibrio                         38     0     0     1.000   1.000
+Enterobacteriaceae                   121     0     1     1.000   0.992
+  Clostridium difficile                1     0     0     1.000   1.000
+Ruminococcus                          31     0     0     1.000   1.000
+  Ruminococcus gnavus                 16     0     0     1.000   1.000
+ALL genus/family rows                761     1    23     0.999   0.971
+
+C. random DNA: 0/200 wrongly classified
