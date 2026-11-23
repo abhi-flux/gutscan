@@ -1,0 +1,42 @@
+name: Build GutScan (Windows)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt pyinstaller pytest
+      - name: Download real NCBI RefSeq 16S sequences
+        run: python tools/fetch_refseq.py
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+      - name: Reference coverage per microbe
+        run: python tools/check_refs.py
+        env:
+          REQUIRE_NCBI: "1"
+      - name: Accuracy benchmark (build fails if accuracy gate fails)
+        run: |
+          python tools/validate.py *> validation_results.txt
+          $code = $LASTEXITCODE
+          Get-Content validation_results.txt
+          exit $code
+      - name: Tests
+        run: python -m pytest -q tests
+      - name: Smoke test (command line, demo file)
+        run: python -m gutscan.cli sample_stool_DEMO_synthetic.fasta
+      - name: Build exe
+        run: pyinstaller --noconfirm --windowed --name GutScan --add-data "gutscan/data;gutscan/data" --hidden-import edlib main.py
+      - name: Zip
+        run: Compress-Archive -Path dist/GutScan -DestinationPath GutScan-windows.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GutScan-windows
+          path: |
+            GutScan-windows.zip
+            validation_results.txt
